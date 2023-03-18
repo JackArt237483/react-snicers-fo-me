@@ -1,35 +1,34 @@
 import React from 'react'
-import removeBtn from "..//img/liked/removebtn.svg"
-import arrow from "..//img/liked/arrow.svg"
+import removeBtn from "..//liked/removebtn.svg"
+import arrow from "..///liked/arrow.svg"
 
-function DrawerCach() {
+function DrawerCach( {onClickClose, items = [] }) {
   return (
     <div>  
-     <div style={{display: "none"}}className="overlay">
+     <div  className="overlay">
           <div className="drawer d-flex flex-column">
             <h2 className="d-flex justify-between mb-30">
               Корзина 
-            <img  className="removeBt cu-p" width={32} height={32} src={removeBtn} alt="remove"/></h2>
+            <img  onClick={onClickClose} className="removeBt cu-p" width={32} height={32} src={removeBtn} alt="close"/></h2>
           
                   <div className="item">
-                    
-                  <div className="cardItem d-flex align-center mb-20">
-                    <div className="backImage"></div>
-                    <div className="mr-20 flex">
-                      <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-                      <b>12999 руб</b>
-                    </div>
-                      <img  className="removeBt" width={32} height={32} src={removeBtn} alt="remove"/>
-                  </div>
 
-                  <div className="cardItem d-flex align-center mb-20">
-                    <div className="backImage"></div>
+                 {
+                  items.map((obj) => (
+               <div key={obj.id} className="cardItem d-flex align-center mb-20">
+                    <div
+                    style={{backgroundImage: `url(${obj.image})`}}
+                     className="backImage">
+                      
+                    </div>
                     <div className="mr-20 flex">
-                      <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-                      <b>12999 руб</b>
+                      <p className="mb-5">{obj.name}</p>
+                      <b>{obj.prize}</b>
                     </div>
                       <img  className="removeBt" width={32} height={32} src={removeBtn} alt="remove"/>
                   </div>
+                  ))
+                 }
 
                   </div>
 

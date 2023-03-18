@@ -1,10 +1,10 @@
 import React from 'react'
-import logo from "..//img/other/logo.png"
-import point from "..//img/other/point.svg"
-import man from "..//img/other/man.svg"
-import cach from "..//img/other/Union.svg"
+import logo from "..//other/logo.png"
+import point from "..//other/point.svg"
+import man from "..//other/man.svg"
+import cach from "..//other/Union.svg"
 
-function Header() {
+function Header(props) {
   return (
     <div>
       <header className="d-flex justify-between align-center p-40">
@@ -16,7 +16,7 @@ function Header() {
           </div>
          </div>
          <ul className="d-flex align-center">
-          <li className="mr-30">
+          <li onClick={props.onClickCard} className="mr-30 cu-p">
           <img src={point} alt="logo"/>
             <span>1205 руб.</span>
             </li> 
